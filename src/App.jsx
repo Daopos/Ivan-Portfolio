@@ -2,6 +2,7 @@
 
 import Home from "./Home";
 import Navbar from "./Navbar";
+import Projects from "./Projects";
 import Waves from "./Waves";
 
 const App = () => {
@@ -17,7 +18,9 @@ const App = () => {
         }}
       >
         <Home />
+        <Projects /> {/* Show projects section */}
       </div>
+      {/* <Waves /> */}
     </div>
   );
 };
