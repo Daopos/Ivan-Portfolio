@@ -1,0 +1,69 @@
+.mainWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.meImage {
+  width: 400px;
+}
+
+.meDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background-color: #14FFEC;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+.helloText {
+  position: absolute;
+  top: 5%;
+  left: 90%; /* adjust depending on image shape */
+  transform: translateX(-10%);
+  font-weight: bold;
+  color: #212121;
+  background-color: rgba(255, 255, 255, 0.4); /* white with 70% opacity */
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 3rem;
+  letter-spacing: 10px;
+}
+
+.introText {
+margin-top: 150px;
+  max-width: 550px;
+}
+
+
+.introText p {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #0D7377;
+
+}
+
+.blinkingText {
+  animation: blink 2s infinite;
+  color: #14FFEC; /* red or any color you like */
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

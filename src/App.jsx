@@ -1,5 +1,6 @@
 // WaveMorphScroll.jsx
 
+import Home from "./Home";
 import Navbar from "./Navbar";
 import Waves from "./Waves";
 
@@ -9,12 +10,14 @@ const App = () => {
       <Navbar />
       <div
         style={{
-          padding: "4rem",
+          padding: "9rem 4rem 4rem 4rem",
           color: "white",
           position: "relative",
           zIndex: 1,
         }}
-      ></div>
+      >
+        <Home />
+      </div>
     </div>
   );
 };
