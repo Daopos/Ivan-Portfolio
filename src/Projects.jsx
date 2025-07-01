@@ -1,6 +1,6 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Photos from "./Photos";
 import Modal from "./Modal";
 
@@ -60,7 +60,19 @@ const projects = [
 
 const Projects = () => {
   const [selectedImages, setSelectedImages] = useState(null);
-  const [dragging, setDragging] = useState(false); // track drag
+  const [dragging, setDragging] = useState(false);
+  const [width, setWidth] = useState(0);
+
+  const carouselRef = useRef();
+  const trackRef = useRef();
+
+  useEffect(() => {
+    if (carouselRef.current && trackRef.current) {
+      const wrapperWidth = carouselRef.current.offsetWidth;
+      const trackWidth = trackRef.current.scrollWidth;
+      setWidth(trackWidth - wrapperWidth);
+    }
+  }, []);
 
   const openModal = (images) => {
     if (!dragging) {
@@ -81,17 +93,15 @@ const Projects = () => {
     >
       <h2>My Projects</h2>
 
-      <div className="carousel-wrapper">
+      <div className="carousel-wrapper" ref={carouselRef}>
         <motion.div
           className="carousel-track"
+          ref={trackRef}
           drag="x"
-          dragConstraints={{ left: -1000, right: 0 }}
+          dragConstraints={{ left: -width, right: 0 }}
           whileTap={{ cursor: "grabbing" }}
           onDragStart={() => setDragging(true)}
-          onDragEnd={() => {
-            // short delay to allow drag to complete before resetting
-            setTimeout(() => setDragging(false), 100);
-          }}
+          onDragEnd={() => setTimeout(() => setDragging(false), 100)}
         >
           {projects.map((proj, i) => (
             <motion.div
@@ -110,7 +120,6 @@ const Projects = () => {
                   className="project-image-single"
                 />
               </div>
-
               <h3>{proj.title}</h3>
               <p>{proj.description}</p>
               <div className="tech-icons">
