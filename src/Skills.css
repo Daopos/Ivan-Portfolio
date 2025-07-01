@@ -36,8 +36,7 @@
 
 .skill-box {
   background: #2c2c2c;
-  padding: 1rem;
-  padding-right: 50px;
+  padding: 1rem 2rem;
   border-radius: 10px;
   width: 120px;
   height: 40px;
@@ -63,3 +62,47 @@
   margin-bottom: 0.5rem;
   object-fit: contain;
 }
+
+@media screen and (max-width: 960px) {
+
+.skills-section {
+    margin-top: 50px;
+}
+}
+
+@media screen and (max-width: 828px) {
+
+    .skills-section {
+    padding: 2rem 2rem;
+}
+
+}
+
+
+
+@media screen and (max-width: 532px) {
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+
+
+
+.skill-box {
+  width: 70px;
+  font-size: .7rem;
+}
+
+.skills-section h2 {
+  font-size: 1.2rem;
+}
+}
+
+
+
+
+

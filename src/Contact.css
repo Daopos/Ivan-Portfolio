@@ -48,3 +48,19 @@
 .contact-form button:hover {
   background-color: #0ef3d2;
 }
+@media screen and (max-width: 960px) {
+
+.contact-section {
+  margin-top: 50px;
+   
+}
+
+}
+
+@media screen and (max-width: 705px) {
+.contact-section {
+ 
+  max-width: 400px;
+}
+
+}

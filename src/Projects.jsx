@@ -13,7 +13,7 @@ const projects = [
       { name: "React.js", icon: Photos.reactIcon },
       { name: "Laravel", icon: Photos.laravelIcon },
       { name: "MySQL", icon: Photos.mysqlIcon },
-      { name: "Hostinger", icon: Photos.laravelIcon },
+      { name: "Hostinger", icon: Photos.HostingerIcon },
     ],
   },
   {
@@ -24,7 +24,7 @@ const projects = [
       { name: "Flutter", icon: Photos.flutterIcon },
       { name: "Laravel", icon: Photos.laravelIcon },
       { name: "MySQL", icon: Photos.mysqlIcon },
-      { name: "Hostinger", icon: Photos.laravelIcon },
+      { name: "Hostinger", icon: Photos.HostingerIcon },
     ],
   },
   {

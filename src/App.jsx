@@ -1,19 +1,29 @@
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
-import Contact from "./Contact"; // ✅ Add this
-import Waves from "./Waves";
-import SeaWaves from "./SeaWaves"; // 👈 this
+import Contact from "./Contact";
 import Skills from "./Skills";
 
 const App = () => {
   return (
     <div style={{ height: "100%", position: "relative" }}>
       <Navbar />
-      <Home />
-      <Skills /> {/* 👈 Add this */}
-      <Projects />
-      <Contact />
+
+      <section id="home">
+        <Home />
+      </section>
+
+      <section id="skills">
+        <Skills />
+      </section>
+
+      <section id="projects">
+        <Projects />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
     </div>
   );
 };

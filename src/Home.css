@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-around;
   margin-top: 10px;
+  padding-top: 50px;
 }
 
 .imageWrapper {
@@ -44,13 +45,13 @@
 }
 
 .introText {
-margin-top: 150px;
-  max-width: 550px;
+margin-top: 160px;
+  max-width: 650px;
 }
 
 
 .introText p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
   letter-spacing: 1px;
   color: #0D7377;
@@ -68,3 +69,93 @@ margin-top: 150px;
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+@media screen and (max-width: 960px) {
+ .mainWrapper {
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.imageWrapper {
+align-self: self-start;
+margin-left: 100px;
+}
+.introText {
+margin-top: 60px;
+  max-width: 750px;
+}
+
+
+}
+
+@media screen and (max-width: 828px) {
+.meImage {
+  width: 300px;
+}
+.meDot {
+  top: 40%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+
+
+
+}
+.helloText {
+
+  font-size: 2rem;
+}
+
+
+
+.introText {
+padding: 0 50px;
+}
+
+}
+
+
+@media screen and (max-width: 705px) {
+.helloText {
+
+  font-size: .7rem;
+}
+.meImage {
+  width: 250px;
+}
+.meDot {
+  top: 35%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+
+}
+.imageWrapper {
+align-self: self-start;
+margin-left: 40px;
+}
+}
+
+@media screen and (max-width: 532px) {
+
+.meImage {
+  width: 150px;
+}
+.introText p{
+  font-size: 10px;
+
+}
+
+.meDot {
+  top: 30%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: .9;
+}
+}
+
+
