@@ -1,26 +1,19 @@
-// WaveMorphScroll.jsx
-
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
+import Contact from "./Contact"; // ✅ Add this
 import Waves from "./Waves";
+import SeaWaves from "./SeaWaves"; // 👈 this
+import Skills from "./Skills";
 
 const App = () => {
   return (
-    <div style={{ height: "3000px" }}>
+    <div style={{ height: "100%", position: "relative" }}>
       <Navbar />
-      <div
-        style={{
-          padding: "9rem 4rem 4rem 4rem",
-          color: "white",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Home />
-        <Projects /> {/* Show projects section */}
-      </div>
-      {/* <Waves /> */}
+      <Home />
+      <Skills /> {/* 👈 Add this */}
+      <Projects />
+      <Contact />
     </div>
   );
 };

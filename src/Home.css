@@ -31,15 +31,16 @@
 .helloText {
   position: absolute;
   top: 5%;
-  left: 90%; /* adjust depending on image shape */
+  left: 80%; /* adjust depending on image shape */
   transform: translateX(-10%);
   font-weight: bold;
-  color: #212121;
-  background-color: rgba(255, 255, 255, 0.4); /* white with 70% opacity */
+  color: #0D7377;
+  background-color: rgba(50, 50, 50, 0.4); /* background with 70% opacity */
   padding: 4px 8px;
   border-radius: 8px;
   font-size: 3rem;
   letter-spacing: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .introText {

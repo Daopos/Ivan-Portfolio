@@ -1,0 +1,38 @@
+.wave-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  opacity: 0.5;
+  bottom: 0;
+  animation: waveAnimation 8s linear infinite;
+}
+
+.wave1 {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'><path fill='%2314FFEC' fill-opacity='0.3' d='M0,0 C300,100 900,0 1200,100 L1200,0 L0,0 Z'></path></svg>");
+  z-index: 1;
+}
+
+.wave2 {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'><path fill='%2314FFEC' fill-opacity='0.2' d='M0,0 C200,80 1000,30 1200,90 L1200,0 L0,0 Z'></path></svg>");
+  z-index: 2;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

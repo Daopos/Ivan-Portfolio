@@ -1,9 +1,7 @@
 .navbar {
   padding: 35px 40px 40px 25px;
-  position: fixed;
   top: 0;
   z-index: 1000;
-  width: 100%;
 }
 
 .navbar-container {

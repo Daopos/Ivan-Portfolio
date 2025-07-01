@@ -1,135 +1,116 @@
 import "./Projects.css";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
-import reactIcon from "./assets/react.png";
-import laravelIcon from "./assets/laravel.png";
-import mysqlIcon from "./assets/mysql.png";
-import flutterIcon from "./assets/flutter.png";
-import apiIcon from "./assets/api.png";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import Photos from "./Photos";
+import Modal from "./Modal";
 
 const projects = [
   {
     title: "School Management Information System",
-    image: "./assets/logo.png",
-    description: "A school management system wit 7 user level.",
+    images: [Photos.School1, Photos.GateMonitory1], // ✅ fixed property name
+    description: "A school management system with 7 user levels.",
     tech: [
-      { name: "React.js", icon: reactIcon },
-      { name: "Laravel", icon: laravelIcon },
-      { name: "MySQL", icon: mysqlIcon },
-      { name: "Hostinger", icon: laravelIcon },
+      { name: "React.js", icon: Photos.reactIcon },
+      { name: "Laravel", icon: Photos.laravelIcon },
+      { name: "MySQL", icon: Photos.mysqlIcon },
+      { name: "Hostinger", icon: Photos.laravelIcon },
     ],
   },
   {
     title: "RFID Monitoring System",
-    image: "/images/ecommerce.png",
+    images: [Photos.GateMonitory1], // ✅ fixed property name
     description: "Mobile and web RFID tracking with Flutter and Laravel.",
     tech: [
-      { name: "Flutter", icon: flutterIcon },
-      { name: "Laravel", icon: laravelIcon },
-      { name: "MySQL", icon: mysqlIcon },
-      { name: "Hostinger", icon: laravelIcon },
+      { name: "Flutter", icon: Photos.flutterIcon },
+      { name: "Laravel", icon: Photos.laravelIcon },
+      { name: "MySQL", icon: Photos.mysqlIcon },
+      { name: "Hostinger", icon: Photos.laravelIcon },
     ],
   },
   {
     title: "Bakery Inventory System",
-    image: "/images/blog.png",
+    images: [Photos.Bakery1], // ✅ fixed property name
+
     description: "Inventory and Sales tracking for a bakery using Laravel.",
     tech: [
-      { name: "Laravel", icon: laravelIcon },
-      { name: "MySQL", icon: mysqlIcon },
+      { name: "Laravel", icon: Photos.laravelIcon },
+      { name: "MySQL", icon: Photos.mysqlIcon },
     ],
   },
   {
     title: "AI-powered Study App",
-    image: "/images/blog.png",
+    images: [Photos.AiStudy1], // ✅ fixed property name
+
     description: "Smart learning app built in Flutter with AI APIs.",
     tech: [
-      { name: "Flutter", icon: flutterIcon },
-      { name: "API", icon: apiIcon },
+      { name: "Flutter", icon: Photos.flutterIcon },
+      { name: "API", icon: Photos.apiIcon },
     ],
   },
   {
     title: "Shoe E-commerce",
-    image: "/images/blog.png",
+    images: [Photos.Shoe1], // ✅ fixed property name
     description: "A PHP-based online shoe store.",
     tech: [
-      { name: "PHP", icon: laravelIcon },
-      { name: "MySQL", icon: mysqlIcon },
+      { name: "PHP", icon: Photos.laravelIcon },
+      { name: "MySQL", icon: Photos.mysqlIcon },
     ],
   },
 ];
 
 const Projects = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const controls = useAnimation();
+  const [selectedImages, setSelectedImages] = useState(null);
+  const [dragging, setDragging] = useState(false); // track drag
 
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const containerRef = useRef(null);
-
-  const duplicated = [...projects, ...projects]; // for loop illusion
-
-  const cardWidth = 320; // including gap
-  const totalWidth = cardWidth * duplicated.length;
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+  const openModal = (images) => {
+    if (!dragging) {
+      setSelectedImages(images);
     }
-  }, [inView, controls]);
+  };
 
-  useEffect(() => {
-    if (!isHovered) {
-      const interval = setInterval(() => {
-        const currentX = x.get();
-        let nextX = currentX - 1;
-
-        // Reset back to 0 halfway to fake infinite loop
-        if (Math.abs(nextX) >= totalWidth / 2) {
-          nextX = 0;
-        }
-
-        x.set(nextX);
-      }, 10); // scroll speed
-
-      return () => clearInterval(interval);
-    }
-  }, [isHovered, x, totalWidth]);
+  const closeModal = () => {
+    setSelectedImages(null);
+  };
 
   return (
     <motion.div
-      ref={ref}
       className="projects-section"
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-      }}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
     >
       <h2>My Projects</h2>
-      <div
-        className="carousel-container"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        ref={containerRef}
-      >
+
+      <div className="carousel-wrapper">
         <motion.div
           className="carousel-track"
-          style={{ x }}
           drag="x"
-          dragElastic={0.05}
-          dragConstraints={{ left: -totalWidth / 2, right: 0 }}
+          dragConstraints={{ left: -1000, right: 0 }}
+          whileTap={{ cursor: "grabbing" }}
+          onDragStart={() => setDragging(true)}
+          onDragEnd={() => {
+            // short delay to allow drag to complete before resetting
+            setTimeout(() => setDragging(false), 100);
+          }}
         >
-          {duplicated.map((proj, i) => (
+          {projects.map((proj, i) => (
             <motion.div
               key={i}
               className="project-card"
-              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              onClick={() => openModal(proj.images)}
             >
-              <img src={proj.image} alt={proj.title} />
+              <div className="project-image">
+                <img
+                  src={proj.images?.[0]}
+                  alt={proj.title}
+                  className="project-image-single"
+                />
+              </div>
+
               <h3>{proj.title}</h3>
               <p>{proj.description}</p>
               <div className="tech-icons">
@@ -149,6 +130,8 @@ const Projects = () => {
           ))}
         </motion.div>
       </div>
+
+      {selectedImages && <Modal images={selectedImages} onClose={closeModal} />}
     </motion.div>
   );
 };

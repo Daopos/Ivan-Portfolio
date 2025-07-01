@@ -1,32 +1,30 @@
 .projects-section {
-  margin-top: 200px;
+  margin-top: 120px;
+    padding: 2rem 6rem;
   overflow: hidden;
-  position: relative;
+  color: #fff;
 }
 
 .projects-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-.carousel-container {
-  margin-top: 50px;
-  overflow: hidden;
+.carousel-wrapper {
   width: 100%;
-  position: relative;
+  overflow: hidden;
   cursor: grab;
-}
-
-.carousel-container:active {
-  cursor: grabbing;
 }
 
 .carousel-track {
   display: flex;
   gap: 2rem;
+  padding: 1rem 0;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   flex: 0 0 auto;
   width: 300px;
   background: #323232;
@@ -42,7 +40,7 @@
 }
 
 .project-card h3 {
-  margin: 0;
+  margin: 0.5rem 0;
 }
 
 .project-card p {
@@ -56,20 +54,46 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.5rem;
-}
-
-.tech-icon-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.85rem;
-  color: #ccc;
-  border-radius: 0.5rem;
+  margin-top: auto;
 }
 
 .tech-icon-img {
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+.tech-icon-item {
+  font-size: .7em;
+  gap: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image {
+  height: 170px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a; /* Optional */
+}
+
+.project-image-single {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+  .project-card {
+    width: 250px;
+  }
+  .carousel-track {
+    gap: 1rem;
+  }
 }
