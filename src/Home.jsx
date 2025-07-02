@@ -62,7 +62,7 @@ const Home = () => {
           }}
         >
           <Typewriter
-            words={["HELLO WORLD!"]}
+            words={["ONGOING PORTFOLIO"]}
             loop={false}
             cursor
             cursorStyle="|"
