@@ -8,7 +8,8 @@ const projects = [
   {
     title: "School Management Information System",
     images: [Photos.School1, Photos.GateMonitory1], // ✅ fixed property name
-    description: "A school management system with 7 user levels.",
+    description:
+      "A comprehensive platform for managing both administrative and academic school operations. Features include user management, enrollment, grading, learning modules, login security, test creation, email notifications, report generation, and support for seven user roles: admin, registrar, finance, principal, teacher, student, and parent.",
     tech: [
       { name: "React.js", icon: Photos.reactIcon },
       { name: "Laravel", icon: Photos.laravelIcon },
@@ -19,7 +20,8 @@ const projects = [
   {
     title: "RFID Monitoring System",
     images: [Photos.GateMonitory1], // ✅ fixed property name
-    description: "Mobile and web RFID tracking with Flutter and Laravel.",
+    description:
+      "A monitoring system for village security with mobile and web access. Features include RFID-based photo capture, gate entry tracking, notifications, report generation, and user account management.",
     tech: [
       { name: "Flutter", icon: Photos.flutterIcon },
       { name: "Laravel", icon: Photos.laravelIcon },
@@ -31,7 +33,8 @@ const projects = [
     title: "Bakery Inventory System",
     images: [Photos.Bakery1], // ✅ fixed property name
 
-    description: "Inventory and Sales tracking for a bakery using Laravel.",
+    description:
+      "A system designed to manage bakery operations including stock tracking, product management, and employee monitoring. Includes features for sales tracking, report generation, and overall inventory control.",
     tech: [
       { name: "Laravel", icon: Photos.laravelIcon },
       { name: "MySQL", icon: Photos.mysqlIcon },
@@ -41,7 +44,8 @@ const projects = [
     title: "AI-powered Study App",
     images: [Photos.AiStudy1], // ✅ fixed property name
 
-    description: "Smart learning app built in Flutter with AI APIs.",
+    description:
+      "A mobile learning app with AI-powered features built using Flutter. Integrated with Gemini AI to enable chatbot-based learning, automated flashcard creation, and AI-generated quizzes.",
     tech: [
       { name: "Flutter", icon: Photos.flutterIcon },
       { name: "API", icon: Photos.apiIcon },
@@ -50,9 +54,10 @@ const projects = [
   {
     title: "Shoe E-commerce",
     images: [Photos.Shoe1], // ✅ fixed property name
-    description: "A PHP-based online shoe store.",
+    description:
+      "An e-commerce platform for selling shoes with features like guest checkout, order management, and sales tracking. Includes product catalog management, stock monitoring, and basic admin controls.",
     tech: [
-      { name: "PHP", icon: Photos.laravelIcon },
+      { name: "PHP", icon: Photos.phpIcon },
       { name: "MySQL", icon: Photos.mysqlIcon },
     ],
   },
@@ -67,11 +72,18 @@ const Projects = () => {
   const trackRef = useRef();
 
   useEffect(() => {
-    if (carouselRef.current && trackRef.current) {
-      const wrapperWidth = carouselRef.current.offsetWidth;
-      const trackWidth = trackRef.current.scrollWidth;
-      setWidth(trackWidth - wrapperWidth);
-    }
+    const updateWidth = () => {
+      if (carouselRef.current && trackRef.current) {
+        const wrapperWidth = carouselRef.current.offsetWidth;
+        const trackWidth = trackRef.current.scrollWidth;
+        setWidth(trackWidth - wrapperWidth);
+      }
+    };
+
+    updateWidth(); // Initial call
+
+    window.addEventListener("resize", updateWidth); // Watch for screen resize
+    return () => window.removeEventListener("resize", updateWidth); // Clean up
   }, []);
 
   const openModal = (images) => {

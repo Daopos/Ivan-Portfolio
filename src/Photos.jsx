@@ -11,6 +11,7 @@ import apiIcon from "./assets/api.png";
 import phpIcon from "./assets/php.png";
 import HostingerIcon from "./assets/hostinger.png";
 import GitIcon from "./assets/git.png";
+import linkedinIcon from "./assets/linkedin.png";
 import GithubIcon from "./assets/github.png";
 import postmanIcon from "./assets/psotman.png";
 import vscodeIcon from "./assets/vscode.png";
@@ -44,6 +45,7 @@ const Photos = {
   postmanIcon,
   vscodeIcon,
   mongodbIcon,
+  linkedinIcon,
 };
 
 export default Photos;
