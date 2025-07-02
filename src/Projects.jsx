@@ -7,7 +7,7 @@ import Modal from "./Modal";
 const projects = [
   {
     title: "School Management Information System",
-    images: [Photos.School1, Photos.GateMonitory1], // ✅ fixed property name
+    images: [{ src: Photos.School1, caption: "School dashboard" }],
     description:
       "A comprehensive platform for managing both administrative and academic school operations. Features include user management, enrollment, grading, learning modules, login security, test creation, email notifications, report generation, and support for seven user roles: admin, registrar, finance, principal, teacher, student, and parent.",
     tech: [
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "RFID Monitoring System",
-    images: [Photos.GateMonitory1], // ✅ fixed property name
+    images: [{ src: Photos.GateMonitory1, caption: "RFID tracking interface" }],
     description:
       "A monitoring system for village security with mobile and web access. Features include RFID-based photo capture, gate entry tracking, notifications, report generation, and user account management.",
     tech: [
@@ -30,9 +30,60 @@ const projects = [
     ],
   },
   {
+    title: "Folder Locker & Encryptor",
+    images: [
+      {
+        src: Photos.Folder2,
+        caption: "View menu",
+      },
+      {
+        src: Photos.Folder1,
+        caption: "Login",
+      },
+      {
+        src: Photos.Folder3,
+        caption: "Encrpt and Compress the files on folder",
+      },
+      {
+        src: Photos.Folder4,
+        caption: "Lock the folder using access control",
+      },
+      {
+        src: Photos.Folder5,
+        caption: "Unlock The folder",
+      },
+      {
+        src: Photos.Folder6,
+        caption: "Recover the folder",
+      },
+      {
+        src: Photos.Folder8,
+        caption: "Change login info",
+      },
+    ],
+    description:
+      "A secure Windows app that compresses, encrypts, and locks folders with password protection, NTFS-based access control, and a recovery mechanism.",
+    tech: [
+      { name: "C#", icon: Photos.csharpIcon },
+      { name: "WindowsForm", icon: Photos.csharpIcon },
+    ],
+  },
+  {
+    title: "PDF Sorter for Scanned Documents",
+    images: [
+      { src: Photos.PDF1, caption: "PDF interleaving UI" },
+      { src: Photos.PDF2, caption: "Reordering tool preview" },
+    ],
+    description:
+      "A tool that helps users fix and reorder scanned PDF files using interleaving logic, real-time preview, and export of corrected documents.",
+    tech: [
+      { name: "C#", icon: Photos.csharpIcon },
+      { name: "WindowsForm", icon: Photos.csharpIcon },
+    ],
+  },
+  {
     title: "Bakery Inventory System",
-    images: [Photos.Bakery1], // ✅ fixed property name
-
+    images: [{ src: Photos.Bakery1, caption: "Stock and sales tracker" }],
     description:
       "A system designed to manage bakery operations including stock tracking, product management, and employee monitoring. Includes features for sales tracking, report generation, and overall inventory control.",
     tech: [
@@ -42,8 +93,12 @@ const projects = [
   },
   {
     title: "AI-powered Study App",
-    images: [Photos.AiStudy1], // ✅ fixed property name
-
+    images: [
+      { src: Photos.AiStudy1, caption: "AI chatbot integration" },
+      { src: Photos.AiStudy2, caption: "Flashcard creation" },
+      { src: Photos.AiStudy3, caption: "AI-generated quizzes" },
+      { src: Photos.AiStudy4, caption: "Mobile learning UI" },
+    ],
     description:
       "A mobile learning app with AI-powered features built using Flutter. Integrated with Gemini AI to enable chatbot-based learning, automated flashcard creation, and AI-generated quizzes.",
     tech: [
@@ -53,7 +108,7 @@ const projects = [
   },
   {
     title: "Shoe E-commerce",
-    images: [Photos.Shoe1], // ✅ fixed property name
+    images: [{ src: Photos.Shoe1, caption: "Product display page" }],
     description:
       "An e-commerce platform for selling shoes with features like guest checkout, order management, and sales tracking. Includes product catalog management, stock monitoring, and basic admin controls.",
     tech: [
@@ -127,7 +182,7 @@ const Projects = () => {
             >
               <div className="project-image">
                 <img
-                  src={proj.images?.[0]}
+                  src={proj.images?.[0]?.src}
                   alt={proj.title}
                   className="project-image-single"
                 />

@@ -13,6 +13,8 @@ const Modal = ({ images, onClose }) => {
     setCurrentIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
   };
 
+  const currentImage = images[currentIndex];
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -33,10 +35,13 @@ const Modal = ({ images, onClose }) => {
 
         <div className="image-container">
           <img
-            src={images[currentIndex]}
+            src={currentImage.src}
             alt={`Preview ${currentIndex}`}
             className="modal-img"
           />
+          {currentImage.caption && (
+            <p className="modal-caption">{currentImage.caption}</p>
+          )}
         </div>
       </div>
     </div>
