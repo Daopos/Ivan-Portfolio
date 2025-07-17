@@ -73,7 +73,6 @@ const Home = () => {
           />
         </motion.div>
       </motion.div>
-
       <motion.div
         className="introText"
         variants={{

@@ -5,11 +5,13 @@ import Photos from "./Photos";
 
 const skillData = {
   skills: [
+    { name: "Typescript", icon: Photos.typescriptIcon },
     { name: "React.js", icon: Photos.reactIcon },
     { name: "Node.js", icon: Photos.nodejsIcon },
     { name: "Express.js", icon: Photos.expressIcon },
     { name: "Laravel", icon: Photos.laravelIcon },
     { name: "C#", icon: Photos.csharpIcon },
+    { name: "Javascript", icon: Photos.javascriptIcon },
     { name: "Java", icon: Photos.javaIcon },
     { name: "PHP", icon: Photos.phpIcon },
     { name: "Flutter", icon: Photos.flutterIcon },
@@ -20,6 +22,7 @@ const skillData = {
     { name: "VS Code", icon: Photos.vscodeIcon },
     { name: "Postman", icon: Photos.postmanIcon },
     { name: "MySQL", icon: Photos.mysqlIcon },
+    { name: "PostgresSQL", icon: Photos.postgresIcon },
     { name: "MongoDB", icon: Photos.mongodbIcon },
   ],
 };

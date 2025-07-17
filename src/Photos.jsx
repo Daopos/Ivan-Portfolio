@@ -16,6 +16,10 @@ import GithubIcon from "./assets/github.png";
 import postmanIcon from "./assets/psotman.png";
 import vscodeIcon from "./assets/vscode.png";
 import mongodbIcon from "./assets/mongodb.png";
+import javascriptIcon from "./assets/javascript.png";
+import typescriptIcon from "./assets/typescript.png";
+import postgresIcon from "./assets/postgres.png";
+import geminiIcon from "./assets/gemini.png";
 
 import Shoe1 from "./assets/projects-photos/shoecommerce.jpg";
 import AiStudy1 from "./assets/projects-photos/aistudy.jpg";
@@ -37,6 +41,14 @@ import Folder5 from "./assets/windowsapp/5.png";
 import Folder6 from "./assets/windowsapp/6.png";
 import Folder7 from "./assets/windowsapp/7.png";
 import Folder8 from "./assets/windowsapp/8.png";
+
+import Weatherwear from "./assets/weatherwear/1.png";
+
+import Aicookmate1 from "./assets/aicookmate/1.png";
+import Aicookmate2 from "./assets/aicookmate/2.png";
+import Aicookmate3 from "./assets/aicookmate/3.png";
+import Aicookmate4 from "./assets/aicookmate/4.png";
+import Aicookmate5 from "./assets/aicookmate/5.png";
 
 const Photos = {
   reactIcon,
@@ -60,6 +72,10 @@ const Photos = {
   vscodeIcon,
   mongodbIcon,
   linkedinIcon,
+  javascriptIcon,
+  typescriptIcon,
+  postgresIcon,
+  geminiIcon,
 
   //AI APP
   AiStudy1,
@@ -80,6 +96,16 @@ const Photos = {
   Folder6,
   Folder7,
   Folder8,
+
+  //AICookmate
+  Aicookmate1,
+  Aicookmate2,
+  Aicookmate3,
+  Aicookmate4,
+  Aicookmate5,
+
+  //Weatherwear
+  Weatherwear,
 };
 
 export default Photos;
